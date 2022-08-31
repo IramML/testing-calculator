@@ -115,6 +115,16 @@ class calculatorPresenterTests: XCTestCase {
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
     }
     
+    func test_computeDivisionBetweenAnyNumberAndZero() {
+        calculatorView.enterNumber(5)
+        calculatorView.enterOperation(.division)
+        calculatorView.enterNumber(0)
+        calculatorView.computeResultOperation()
+        
+        XCTAssertEqual(calculatorView.displayContent, "No puedes dividir entre 0")
+        XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
+    }
+    
     func test_computeSubstractionBetweenTwoNumbers() {
         calculatorView.enterNumber(8)
         calculatorView.enterOperation(.substraction)

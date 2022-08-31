@@ -70,7 +70,8 @@ class CalculatorPresenter {
             }
             
             self.status = .result
-            self.displayToView(String(self.lastResult!))
+            let resultToDisplay: String = self.lastResult!.isNaN ? "No puedes dividir entre 0" : String(self.lastResult!)
+            self.displayToView(resultToDisplay)
             self.stringNumbersToCompute = ("", "")
         }
     }
