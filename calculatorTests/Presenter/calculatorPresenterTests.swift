@@ -233,6 +233,20 @@ class calculatorPresenterTests: XCTestCase {
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .enterFirstNumber)
     }
     
+    func test_computeOperationUsingLastResult() {
+          calculatorView.enterNumber(6)
+          calculatorView.enterOperation(.addition)
+          calculatorView.enterNumber(1)
+          calculatorView.computeResultOperation()
+          calculatorView.enterOperation(.addition)
+          XCTAssertEqual(calculatorView.displayContent, "+")
+          XCTAssertEqual(calculatorView.calculatorPresenter.status, .enterOperation)
+          calculatorView.enterNumber(3)
+          calculatorView.computeResultOperation()
+          XCTAssertEqual(calculatorView.displayContent, "10")
+          XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
+     
+      }
 }
 
 class CalculatorView {

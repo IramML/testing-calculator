@@ -41,8 +41,11 @@ class CalculatorPresenter {
     }
     
     func operationSelected(_ operation: MathOperation) {
-        guard (status == .enterFirstNumber && !stringNumbersToCompute.0.isEmpty) || status == .enterOperation else {
+        guard (status == .enterFirstNumber && !stringNumbersToCompute.0.isEmpty) || status == .enterOperation || status == .result else {
             return
+        }
+        if let lastResult = lastResult, status == .result {
+            self.stringNumbersToCompute.0 = String(lastResult)
         }
         self.operationSelected = operation
         self.displayToView(operation.description)
