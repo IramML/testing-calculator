@@ -91,7 +91,7 @@ class calculatorPresenterTests: XCTestCase {
         calculatorView.enterNumber(5)
         calculatorView.computeResultOperation()
         
-        XCTAssertEqual(calculatorView.displayContent, "8.0")
+        XCTAssertEqual(calculatorView.displayContent, "8")
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
     }
     
@@ -101,7 +101,7 @@ class calculatorPresenterTests: XCTestCase {
         calculatorView.enterNumber(2)
         calculatorView.computeResultOperation()
         
-        XCTAssertEqual(calculatorView.displayContent, "12.0")
+        XCTAssertEqual(calculatorView.displayContent, "12")
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
     }
     
@@ -111,7 +111,7 @@ class calculatorPresenterTests: XCTestCase {
         calculatorView.enterNumber(4)
         calculatorView.computeResultOperation()
         
-        XCTAssertEqual(calculatorView.displayContent, "4.0")
+        XCTAssertEqual(calculatorView.displayContent, "4")
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
     }
     
@@ -131,7 +131,7 @@ class calculatorPresenterTests: XCTestCase {
         calculatorView.enterNumber(7)
         calculatorView.computeResultOperation()
         
-        XCTAssertEqual(calculatorView.displayContent, "1.0")
+        XCTAssertEqual(calculatorView.displayContent, "1")
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
     }
     
@@ -143,7 +143,7 @@ class calculatorPresenterTests: XCTestCase {
         calculatorView.enterNumber(2)
         calculatorView.computeResultOperation()
         
-        XCTAssertEqual(calculatorView.displayContent, "33.0")
+        XCTAssertEqual(calculatorView.displayContent, "33")
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
     }
     

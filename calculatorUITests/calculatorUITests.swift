@@ -34,7 +34,7 @@ class calculatorUITests: XCTestCase {
         app.buttons["3"].tap()
         XCTAssertEqual(displayLabel.label, "3")
         app.buttons["="].tap()
-        XCTAssertEqual(displayLabel.label, "4.0")
+        XCTAssertEqual(displayLabel.label, "4")
     }
     
     func test_delete_all() {
