@@ -15,6 +15,7 @@ class CalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.calculatorPresenter.delegate = self
+        self.displayLabel.accessibilityIdentifier = "displayLabel"
     }
     
     @IBAction func writeNumberAction(_ sender: Any) {

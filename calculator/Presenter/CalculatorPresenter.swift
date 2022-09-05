@@ -41,8 +41,11 @@ class CalculatorPresenter {
     }
     
     func operationSelected(_ operation: MathOperation) {
-        guard (status == .enterFirstNumber && !stringNumbersToCompute.0.isEmpty) || status == .enterOperation else {
+        guard (status == .enterFirstNumber && !stringNumbersToCompute.0.isEmpty) || status == .enterOperation || status == .result else {
             return
+        }
+        if let lastResult = lastResult, status == .result {
+            self.stringNumbersToCompute.0 = String(lastResult)
         }
         self.operationSelected = operation
         self.displayToView(operation.description)
@@ -70,7 +73,19 @@ class CalculatorPresenter {
             }
             
             self.status = .result
-            self.displayToView(String(self.lastResult!))
+            
+            guard let lastResult = lastResult else {
+                return
+            }
+            let resultToDisplay: String
+            if lastResult.isNaN {
+                resultToDisplay = "No puedes dividir entre 0"
+            } else if String(lastResult).hasSuffix(".0") {
+                resultToDisplay = String(lastResult).replacingOccurrences(of: ".0", with: "")
+            } else {
+                resultToDisplay = String(lastResult)
+            }
+            self.displayToView(resultToDisplay)
             self.stringNumbersToCompute = ("", "")
         }
     }
