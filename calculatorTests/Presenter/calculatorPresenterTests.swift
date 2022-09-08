@@ -249,12 +249,15 @@ class calculatorPresenterTests: XCTestCase {
       }
 }
 
-class CalculatorView {
+class CalculatorView: ViewProtocol {
+    var presenter: PresenterProtocol? = CalculatorPresenter()
     var displayContent: String = ""
-    let calculatorPresenter: CalculatorPresenter = CalculatorPresenter()
+    var calculatorPresenter: CalculatorPresenter {
+        presenter as! CalculatorPresenter
+    }
     
     init() {
-        self.calculatorPresenter.delegate = self
+        self.presenter?.view = self
     }
     
     func enterNumber(_ number: Int) {

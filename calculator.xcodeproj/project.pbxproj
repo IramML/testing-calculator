@@ -20,6 +20,11 @@
 		FA264D4128ADE02600364B8C /* ArithmeticOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA264D4028ADE02600364B8C /* ArithmeticOperations.swift */; };
 		FA264D4328ADE54200364B8C /* arithmeticOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA264D4228ADE54200364B8C /* arithmeticOperationsTests.swift */; };
 		FA264D4528B00A7300364B8C /* CalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA264D4428B00A7300364B8C /* CalculatorPresenter.swift */; };
+		FA97CBD428C956EF001978D7 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97CBD328C956EF001978D7 /* ViewProtocol.swift */; };
+		FA97CBD628C956FA001978D7 /* PresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97CBD528C956FA001978D7 /* PresenterProtocol.swift */; };
+		FA97CBD828C95707001978D7 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97CBD728C95707001978D7 /* RouterProtocol.swift */; };
+		FA97CBDA28C9571F001978D7 /* InteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97CBD928C9571F001978D7 /* InteractorProtocol.swift */; };
+		FA97CBDE28C959F4001978D7 /* CalculatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97CBDD28C959F4001978D7 /* CalculatorRouter.swift */; };
 		FAD66C9228B198F400E75CBE /* calculatorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD66C9128B198F400E75CBE /* calculatorPresenterTests.swift */; };
 		FAD66C9628B2CF1D00E75CBE /* MathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD66C9528B2CF1D00E75CBE /* MathOperation.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +64,11 @@
 		FA264D4028ADE02600364B8C /* ArithmeticOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticOperations.swift; sourceTree = "<group>"; };
 		FA264D4228ADE54200364B8C /* arithmeticOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arithmeticOperationsTests.swift; sourceTree = "<group>"; };
 		FA264D4428B00A7300364B8C /* CalculatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorPresenter.swift; sourceTree = "<group>"; };
+		FA97CBD328C956EF001978D7 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		FA97CBD528C956FA001978D7 /* PresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocol.swift; sourceTree = "<group>"; };
+		FA97CBD728C95707001978D7 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		FA97CBD928C9571F001978D7 /* InteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorProtocol.swift; sourceTree = "<group>"; };
+		FA97CBDD28C959F4001978D7 /* CalculatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorRouter.swift; sourceTree = "<group>"; };
 		FAD66C9128B198F400E75CBE /* calculatorPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorPresenterTests.swift; sourceTree = "<group>"; };
 		FAD66C9528B2CF1D00E75CBE /* MathOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +121,8 @@
 		FA264D0828ADB17300364B8C /* calculator */ = {
 			isa = PBXGroup;
 			children = (
+				FA97CBD128C956DC001978D7 /* Router */,
+				FA97CBD028C956D5001978D7 /* Interactor */,
 				FA264D3F28ADE00400364B8C /* Calculator */,
 				FA264D3C28ADBBC900364B8C /* UI */,
 				FAD66C9428B2BFA500E75CBE /* Presenter */,
@@ -146,6 +158,7 @@
 		FA264D3C28ADBBC900364B8C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FA97CBD328C956EF001978D7 /* ViewProtocol.swift */,
 				FA264D0F28ADB17300364B8C /* Main.storyboard */,
 				FA264D0D28ADB17300364B8C /* CalculatorViewController.swift */,
 			);
@@ -161,6 +174,23 @@
 			path = Calculator;
 			sourceTree = "<group>";
 		};
+		FA97CBD028C956D5001978D7 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FA97CBD928C9571F001978D7 /* InteractorProtocol.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FA97CBD128C956DC001978D7 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				FA97CBD728C95707001978D7 /* RouterProtocol.swift */,
+				FA97CBDD28C959F4001978D7 /* CalculatorRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		FAD66C9328B2BF9700E75CBE /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +202,7 @@
 		FAD66C9428B2BFA500E75CBE /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				FA97CBD528C956FA001978D7 /* PresenterProtocol.swift */,
 				FA264D4428B00A7300364B8C /* CalculatorPresenter.swift */,
 			);
 			path = Presenter;
@@ -309,7 +340,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA264D0E28ADB17300364B8C /* CalculatorViewController.swift in Sources */,
+				FA97CBDE28C959F4001978D7 /* CalculatorRouter.swift in Sources */,
 				FAD66C9628B2CF1D00E75CBE /* MathOperation.swift in Sources */,
+				FA97CBD828C95707001978D7 /* RouterProtocol.swift in Sources */,
+				FA97CBD628C956FA001978D7 /* PresenterProtocol.swift in Sources */,
+				FA97CBDA28C9571F001978D7 /* InteractorProtocol.swift in Sources */,
+				FA97CBD428C956EF001978D7 /* ViewProtocol.swift in Sources */,
 				FA264D1428ADB17300364B8C /* calculator.xcdatamodeld in Sources */,
 				FA264D0A28ADB17300364B8C /* AppDelegate.swift in Sources */,
 				FA264D0C28ADB17300364B8C /* SceneDelegate.swift in Sources */,

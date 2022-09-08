@@ -11,10 +11,16 @@ protocol CalculatorDelegate: AnyObject {
     func showOnCalculatorDisplay(_ content: String)
 }
 
-class CalculatorPresenter {
-    weak var delegate: CalculatorDelegate?
+class CalculatorPresenter: PresenterProtocol {
+    var router: RouterProtocol?
+    var interactor: InteractorProtocol?
+    var view: ViewProtocol?
     
     private let arithmeticOperations = ArithmeticOperations()
+    
+    init() {
+        
+    }
     
     private(set) var status: CalculatorStatus = .enterFirstNumber
     private var lastResult: Double? = nil
@@ -130,7 +136,7 @@ class CalculatorPresenter {
     }
     
     private func displayToView(_ content: String) {
-        self.delegate?.showOnCalculatorDisplay(content)
+        (self.view as? CalculatorDelegate)?.showOnCalculatorDisplay(content)
     }
 }
 
