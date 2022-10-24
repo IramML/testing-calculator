@@ -9,25 +9,22 @@ import XCTest
 @testable import calculator
 
 class calculatorPresenterTests: XCTestCase {
-    let calculatorView: CalculatorView = CalculatorView()
-
-    override func tearDownWithError() throws {
-        self.calculatorView.deleteAll()
-        
-    }
     
     func test_noAction() {
+        let calculatorView = makeSUT()
         XCTAssertEqual(calculatorView.displayContent, "")
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .enterFirstNumber)
     }
     
     func test_addFirstNumber() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(1)
         XCTAssertEqual(calculatorView.displayContent, "1")
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .enterFirstNumber)
     }
     
     func test_addFirstNumberEnterTwoDigits() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(1)
         calculatorView.enterNumber(2)
         XCTAssertEqual(calculatorView.displayContent, "12")
@@ -35,6 +32,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_deleteAllAfterEnterNumber() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(1)
         calculatorView.deleteAll()
         
@@ -43,6 +41,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_enterOperationWithoutEnterFirstNumber() {
+        let calculatorView = makeSUT()
         calculatorView.enterOperation(.addition)
         
         XCTAssertEqual(calculatorView.displayContent, "")
@@ -50,6 +49,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_enterOperationAfterEnterFirstNumber() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(1)
         calculatorView.enterOperation(.addition)
         
@@ -58,6 +58,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_enterTwoOperationAfterEnterFirstNumber_shouldUseLastOperation() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(1)
         calculatorView.enterOperation(.addition)
         calculatorView.enterOperation(.multiplication)
@@ -67,6 +68,7 @@ class calculatorPresenterTests: XCTestCase {
     }
 
     func test_enterSecondNumberAfterFirstNumberAndOperation() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(1)
         calculatorView.enterOperation(.addition)
         calculatorView.enterNumber(2)
@@ -76,6 +78,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_enterSecondNumberWithTwoDigitsAfterFirstNumberAndOperation() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(1)
         calculatorView.enterOperation(.addition)
         calculatorView.enterNumber(2)
@@ -86,6 +89,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_computeAdditionBetweenTwoNumbers() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(3)
         calculatorView.enterOperation(.addition)
         calculatorView.enterNumber(5)
@@ -96,6 +100,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_computeMultiplicationBetweenTwoNumbers() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(6)
         calculatorView.enterOperation(.multiplication)
         calculatorView.enterNumber(2)
@@ -106,6 +111,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_computeDivisionBetweenTwoNumbers() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(16)
         calculatorView.enterOperation(.division)
         calculatorView.enterNumber(4)
@@ -116,6 +122,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_computeDivisionBetweenAnyNumberAndZero() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(5)
         calculatorView.enterOperation(.division)
         calculatorView.enterNumber(0)
@@ -126,6 +133,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_computeSubstractionBetweenTwoNumbers() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(8)
         calculatorView.enterOperation(.substraction)
         calculatorView.enterNumber(7)
@@ -136,6 +144,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_computeAdditionBetweenTwoNumbersWithTwoDigits() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(1)
         calculatorView.enterNumber(1)
         calculatorView.enterOperation(.addition)
@@ -148,6 +157,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_computeAdditionBetweenTwoFloatNumbers() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(1)
         calculatorView.enterDot()
         calculatorView.enterNumber(1)
@@ -162,6 +172,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_numbersJustEnterOnlyOneValidDot() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(5)
         XCTAssertEqual(calculatorView.displayContent, "5")
         calculatorView.enterDot()
@@ -190,6 +201,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_enterNumbersStartingWithDot() {
+        let calculatorView = makeSUT()
         calculatorView.enterDot()
         calculatorView.enterNumber(1)
         XCTAssertEqual(calculatorView.displayContent, ".1")
@@ -205,12 +217,14 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_computeResultWithNoNumbers() {
+        let calculatorView = makeSUT()
         calculatorView.computeResultOperation()
         XCTAssertEqual(calculatorView.displayContent, "")
         XCTAssertEqual(calculatorView.calculatorPresenter.status, .enterFirstNumber)
     }
     
     func test_enterNumberAfterResult_shouldEnterFirstNumber() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(3)
         calculatorView.enterOperation(.addition)
         calculatorView.enterNumber(5)
@@ -222,6 +236,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_enterDotNumberAfterResult_shouldEnterFirstNumber() {
+        let calculatorView = makeSUT()
         calculatorView.enterNumber(3)
         calculatorView.enterOperation(.addition)
         calculatorView.enterNumber(5)
@@ -234,6 +249,7 @@ class calculatorPresenterTests: XCTestCase {
     }
     
     func test_computeOperationUsingLastResult() {
+        let calculatorView = makeSUT()
           calculatorView.enterNumber(6)
           calculatorView.enterOperation(.addition)
           calculatorView.enterNumber(1)
@@ -246,7 +262,14 @@ class calculatorPresenterTests: XCTestCase {
           XCTAssertEqual(calculatorView.displayContent, "10")
           XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
      
-      }
+    }
+    
+    func makeSUT() -> CalculatorView {
+        let calculatorView = CalculatorView()
+        trackForMemoryLeaks(calculatorView)
+        trackForMemoryLeaks(calculatorView.calculatorPresenter)
+        return calculatorView
+    }
 }
 
 class CalculatorView {
