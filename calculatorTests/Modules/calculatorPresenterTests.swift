@@ -249,15 +249,16 @@ class calculatorPresenterTests: XCTestCase {
       }
 }
 
-class CalculatorView: ViewProtocol {
-    var presenter: PresenterProtocol? = CalculatorPresenter()
+class CalculatorView {
     var displayContent: String = ""
-    var calculatorPresenter: CalculatorPresenter {
-        presenter as! CalculatorPresenter
-    }
+    var calculatorPresenter: CalculatorPresenter = CalculatorPresenter()
     
     init() {
-        self.presenter?.view = self
+        self.calculatorPresenter.view = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func enterNumber(_ number: Int) {
@@ -279,6 +280,7 @@ class CalculatorView: ViewProtocol {
     func deleteAll() {
         self.calculatorPresenter.deleteAll()
     }
+    
 }
 
 extension CalculatorView: CalculatorDelegate {

@@ -14,7 +14,7 @@ protocol CalculatorDelegate: AnyObject {
 class CalculatorPresenter {
     var router: RouterProtocol?
     var interactor: CalculatorInteractor?
-    weak var view: CalculatorViewController?
+    weak var view: CalculatorDelegate?
     
     private let arithmeticOperations = ArithmeticOperations()
     
