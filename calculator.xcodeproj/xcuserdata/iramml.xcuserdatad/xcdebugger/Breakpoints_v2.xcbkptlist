@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "26F74A36-A010-40DA-B2CE-CDFA918CA0FA"
+            uuid = "2658FAD3-1453-4F2E-9C61-4A757B89914F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "calculatorTests/calculatorPresenterTests.swift"
+            filePath = "calculator/Modules/Calculator/CalculatorInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "test_addFirstNumber()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8DC7332E-86B8-4C47-B465-DCC889CF38BF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "calculatorTests/calculatorPresenterTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "test_addFirstNumber()"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "makeOperation(firstNumber:secondNumber:operation:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

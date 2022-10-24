@@ -60,24 +60,9 @@ class CalculatorPresenter {
         guard let operationSelected = operationSelected, case .enterSecondNumber = status, !self.stringNumbersToCompute.1.isEmpty else {
             return
         }
-        if let firstNumber = Double(self.stringNumbersToCompute.0), let secondNumber = Double(self.stringNumbersToCompute.1), let result = interactor?.makeOperation(firstNumber: firstNumber, secondNumber: secondNumber, operation: operationSelected) {
+        if let firstNumber = Double(self.stringNumbersToCompute.0), let secondNumber = Double(self.stringNumbersToCompute.1) {
             
-            self.lastResult = result
-            self.status = .result
-            
-            guard let lastResult = lastResult else {
-                return
-            }
-            let resultToDisplay: String
-            if lastResult.isNaN {
-                resultToDisplay = "No puedes dividir entre 0"
-            } else if String(lastResult).hasSuffix(".0") {
-                resultToDisplay = String(lastResult).replacingOccurrences(of: ".0", with: "")
-            } else {
-                resultToDisplay = String(lastResult)
-            }
-            self.displayToView(resultToDisplay)
-            self.stringNumbersToCompute = ("", "")
+            interactor?.makeOperation(firstNumber: firstNumber, secondNumber: secondNumber, operation: operationSelected)
         }
     }
     
@@ -122,6 +107,25 @@ class CalculatorPresenter {
     
     private func displayToView(_ content: String) {
         self.view?.showOnCalculatorDisplay(content)
+    }
+    
+    func showResult(_ result: Double) {
+        self.lastResult = result
+        self.status = .result
+        
+        guard let lastResult = lastResult else {
+            return
+        }
+        let resultToDisplay: String
+        if lastResult.isNaN {
+            resultToDisplay = "No puedes dividir entre 0"
+        } else if String(lastResult).hasSuffix(".0") {
+            resultToDisplay = String(lastResult).replacingOccurrences(of: ".0", with: "")
+        } else {
+            resultToDisplay = String(lastResult)
+        }
+        self.displayToView(resultToDisplay)
+        self.stringNumbersToCompute = ("", "")
     }
 }
 

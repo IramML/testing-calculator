@@ -19,9 +19,12 @@ class CalculatorRouter: RouterProtocol {
         let navigation: UINavigationController? = storyboard.instantiateInitialViewController()
         let view: CalculatorViewController = navigation?.visibleViewController as! CalculatorViewController
         let presenter: CalculatorPresenter = CalculatorPresenter()
+        let interactor = CalculatorInteractor()
         
         view.presenter = presenter
         presenter.view = view
+        presenter.interactor = interactor
+        interactor.presenter = presenter
         
         router.entry = view
         

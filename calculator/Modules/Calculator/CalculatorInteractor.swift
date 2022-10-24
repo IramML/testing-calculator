@@ -12,16 +12,19 @@ class CalculatorInteractor {
     
     private let arithmeticOperations = ArithmeticOperations()
     
-    func makeOperation(firstNumber: Double, secondNumber: Double, operation: MathOperation) -> Double {
+    func makeOperation(firstNumber: Double, secondNumber: Double, operation: MathOperation) {
+        let result: Double
         switch operation {
         case .addition:
-            return self.arithmeticOperations.addition(firstNumber: firstNumber, secondNumber: secondNumber)
+            result = self.arithmeticOperations.addition(firstNumber: firstNumber, secondNumber: secondNumber)
         case .division:
-            return self.arithmeticOperations.division(firstNumber: firstNumber, secondNumber: secondNumber).doubleValue
+            result = self.arithmeticOperations.division(firstNumber: firstNumber, secondNumber: secondNumber).doubleValue
         case .multiplication:
-            return self.arithmeticOperations.multiplication(firstNumber: firstNumber, secondNumber: secondNumber)
+            result = self.arithmeticOperations.multiplication(firstNumber: firstNumber, secondNumber: secondNumber)
         case .substraction:
-            return self.arithmeticOperations.substraction(firstNumber: firstNumber, secondNumber: secondNumber)
+            result = self.arithmeticOperations.substraction(firstNumber: firstNumber, secondNumber: secondNumber)
         }
+        
+        presenter?.showResult(result)
     }
 }

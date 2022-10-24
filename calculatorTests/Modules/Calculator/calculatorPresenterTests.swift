@@ -284,6 +284,7 @@ class CalculatorView {
         let interactor = CalculatorInteractor()
         self.calculatorPresenter.view = self
         self.calculatorPresenter.interactor = interactor
+        interactor.presenter = calculatorPresenter
     }
     
     required init?(coder: NSCoder) {
