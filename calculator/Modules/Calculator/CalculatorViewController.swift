@@ -7,11 +7,8 @@
 
 import UIKit
 
-class CalculatorViewController: UIViewController, ViewProtocol {
-    var presenter: PresenterProtocol?
-    var calculatorPresenter: CalculatorPresenter? {
-        presenter as? CalculatorPresenter
-    }
+class CalculatorViewController: UIViewController {
+    var presenter: CalculatorPresenter?
     
     @IBOutlet weak var displayLabel: UILabel!
     
@@ -23,7 +20,7 @@ class CalculatorViewController: UIViewController, ViewProtocol {
     @IBAction func writeNumberAction(_ sender: Any) {
         if let numberButton = sender as? UIButton,
             let number: Int = Int(numberButton.titleLabel?.text ?? "") {
-            self.calculatorPresenter?.numberSelected(number)
+            self.presenter?.numberSelected(number)
         }
     }
     
@@ -31,20 +28,20 @@ class CalculatorViewController: UIViewController, ViewProtocol {
         if let operationButton = sender as? UIButton,
            let operationString = operationButton.titleLabel?.text,
            let operation: MathOperation = MathOperation.getOperation(byDescription: operationString) {
-            self.calculatorPresenter?.operationSelected(operation)
+            self.presenter?.operationSelected(operation)
         }
     }
     
     @IBAction func deleteAction(_ sender: Any) {
-        self.calculatorPresenter?.deleteAll()
+        self.presenter?.deleteAll()
     }
     
     @IBAction func enterDotAction(_ sender: Any) {
-        self.calculatorPresenter?.enterDot()
+        self.presenter?.enterDot()
     }
     
     @IBAction func computeResultAction(_ sender: Any) {
-        self.calculatorPresenter?.computeResult()
+        self.presenter?.computeResult()
     }
 }
 

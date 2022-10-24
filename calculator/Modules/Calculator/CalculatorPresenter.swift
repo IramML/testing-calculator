@@ -11,10 +11,10 @@ protocol CalculatorDelegate: AnyObject {
     func showOnCalculatorDisplay(_ content: String)
 }
 
-class CalculatorPresenter: PresenterProtocol {
+class CalculatorPresenter {
     var router: RouterProtocol?
-    var interactor: InteractorProtocol?
-    var view: ViewProtocol?
+    var interactor: CalculatorInteractor?
+    weak var view: CalculatorViewController?
     
     private let arithmeticOperations = ArithmeticOperations()
     
@@ -136,7 +136,7 @@ class CalculatorPresenter: PresenterProtocol {
     }
     
     private func displayToView(_ content: String) {
-        (self.view as? CalculatorDelegate)?.showOnCalculatorDisplay(content)
+        self.view?.showOnCalculatorDisplay(content)
     }
 }
 

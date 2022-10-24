@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-typealias EntryPoint = ViewProtocol & UIViewController
+typealias EntryPoint = UIViewController
 
 protocol RouterProtocol {
     var entry: EntryPoint? { get }
