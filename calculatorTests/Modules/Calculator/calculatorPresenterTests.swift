@@ -268,6 +268,10 @@ class calculatorPresenterTests: XCTestCase {
         let calculatorView = CalculatorView()
         trackForMemoryLeaks(calculatorView)
         trackForMemoryLeaks(calculatorView.calculatorPresenter)
+        if let interactor = calculatorView.calculatorPresenter.interactor {
+            trackForMemoryLeaks(interactor)
+        }
+        
         return calculatorView
     }
 }
@@ -277,7 +281,9 @@ class CalculatorView {
     var calculatorPresenter: CalculatorPresenter = CalculatorPresenter()
     
     init() {
+        let interactor = CalculatorInteractor()
         self.calculatorPresenter.view = self
+        self.calculatorPresenter.interactor = interactor
     }
     
     required init?(coder: NSCoder) {

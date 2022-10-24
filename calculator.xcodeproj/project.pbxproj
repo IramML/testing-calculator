@@ -170,10 +170,10 @@
 			isa = PBXGroup;
 			children = (
 				FA97CBDD28C959F4001978D7 /* CalculatorRouter.swift */,
-				FA264D0D28ADB17300364B8C /* CalculatorViewController.swift */,
-				FA264D4428B00A7300364B8C /* CalculatorPresenter.swift */,
-				FA264D0F28ADB17300364B8C /* Main.storyboard */,
 				FA56D4C72906D33B007ED2A7 /* CalculatorInteractor.swift */,
+				FA264D4428B00A7300364B8C /* CalculatorPresenter.swift */,
+				FA264D0D28ADB17300364B8C /* CalculatorViewController.swift */,
+				FA264D0F28ADB17300364B8C /* Main.storyboard */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";

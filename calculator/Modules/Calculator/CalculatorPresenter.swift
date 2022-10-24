@@ -16,8 +16,6 @@ class CalculatorPresenter {
     var interactor: CalculatorInteractor?
     weak var view: CalculatorDelegate?
     
-    private let arithmeticOperations = ArithmeticOperations()
-    
     init() {
         
     }
@@ -62,22 +60,9 @@ class CalculatorPresenter {
         guard let operationSelected = operationSelected, case .enterSecondNumber = status, !self.stringNumbersToCompute.1.isEmpty else {
             return
         }
-        if let firstNumber = Double(self.stringNumbersToCompute.0), let secondNumber = Double(self.stringNumbersToCompute.1) {
-            switch (operationSelected) {
-            case .addition:
-                self.lastResult = self.arithmeticOperations.addition(firstNumber: firstNumber, secondNumber: secondNumber)
-                break;
-            case .multiplication:
-                self.lastResult = self.arithmeticOperations.multiplication(firstNumber: firstNumber, secondNumber: secondNumber)
-                break;
-            case .division:
-                self.lastResult = self.arithmeticOperations.division(firstNumber: firstNumber, secondNumber: secondNumber).doubleValue
-                break;
-            case .substraction:
-                self.lastResult = self.arithmeticOperations.substraction(firstNumber: firstNumber, secondNumber: secondNumber)
-                break;
-            }
+        if let firstNumber = Double(self.stringNumbersToCompute.0), let secondNumber = Double(self.stringNumbersToCompute.1), let result = interactor?.makeOperation(firstNumber: firstNumber, secondNumber: secondNumber, operation: operationSelected) {
             
+            self.lastResult = result
             self.status = .result
             
             guard let lastResult = lastResult else {
