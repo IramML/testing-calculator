@@ -9,11 +9,10 @@ import XCTest
 @testable import calculator
 
 class calculatorPresenterTests: XCTestCase {
-    let calculatorView: CalculatorView = CalculatorView()
-
-    override func tearDownWithError() throws {
-        self.calculatorView.deleteAll()
-        
+    let calculatorView = CalculatorView()
+    
+    override func setUp() {
+        calculatorView.deleteAll()
     }
     
     func test_noAction() {
@@ -246,15 +245,31 @@ class calculatorPresenterTests: XCTestCase {
           XCTAssertEqual(calculatorView.displayContent, "10")
           XCTAssertEqual(calculatorView.calculatorPresenter.status, .result)
      
-      }
+    }
+    
+    func test_whenViewIsDecoupled_shouldDecouplePresenterAndInteractor() {
+        let view = CalculatorView()
+        trackForMemoryLeaks(view)
+        trackForMemoryLeaks(view.calculatorPresenter)
+        if let interactor = view.calculatorPresenter.interactor {
+            trackForMemoryLeaks(interactor)
+        }
+    }
 }
 
 class CalculatorView {
     var displayContent: String = ""
-    let calculatorPresenter: CalculatorPresenter = CalculatorPresenter()
+    var calculatorPresenter: CalculatorPresenter = CalculatorPresenter()
     
     init() {
-        self.calculatorPresenter.delegate = self
+        let interactor = CalculatorInteractor()
+        self.calculatorPresenter.view = self
+        self.calculatorPresenter.interactor = interactor
+        interactor.presenter = calculatorPresenter
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func enterNumber(_ number: Int) {
@@ -276,6 +291,7 @@ class CalculatorView {
     func deleteAll() {
         self.calculatorPresenter.deleteAll()
     }
+    
 }
 
 extension CalculatorView: CalculatorDelegate {

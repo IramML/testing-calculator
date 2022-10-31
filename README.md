@@ -4,7 +4,7 @@
 ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FIramML_)
 ## About the project
 
-The application was generated with [Xcode](https://developer.apple.com/xcode/). Is developed using the MVP architectural pattern.
+The application was generated with [Xcode](https://developer.apple.com/xcode/). Is developed using the VIPER architectural pattern.
 
 The proposit of this project is to practice unit testing and UI testing.
 

@@ -8,20 +8,19 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
-    @IBOutlet weak var displayLabel: UILabel!
+    var presenter: CalculatorPresenter?
     
-    let calculatorPresenter: CalculatorPresenter = CalculatorPresenter()
+    @IBOutlet weak var displayLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.calculatorPresenter.delegate = self
         self.displayLabel.accessibilityIdentifier = "displayLabel"
     }
     
     @IBAction func writeNumberAction(_ sender: Any) {
         if let numberButton = sender as? UIButton,
             let number: Int = Int(numberButton.titleLabel?.text ?? "") {
-            self.calculatorPresenter.numberSelected(number)
+            self.presenter?.numberSelected(number)
         }
     }
     
@@ -29,20 +28,20 @@ class CalculatorViewController: UIViewController {
         if let operationButton = sender as? UIButton,
            let operationString = operationButton.titleLabel?.text,
            let operation: MathOperation = MathOperation.getOperation(byDescription: operationString) {
-            self.calculatorPresenter.operationSelected(operation)
+            self.presenter?.operationSelected(operation)
         }
     }
     
     @IBAction func deleteAction(_ sender: Any) {
-        self.calculatorPresenter.deleteAll()
+        self.presenter?.deleteAll()
     }
     
     @IBAction func enterDotAction(_ sender: Any) {
-        self.calculatorPresenter.enterDot()
+        self.presenter?.enterDot()
     }
     
     @IBAction func computeResultAction(_ sender: Any) {
-        self.calculatorPresenter.computeResult()
+        self.presenter?.computeResult()
     }
 }
 

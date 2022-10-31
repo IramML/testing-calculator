@@ -12,9 +12,13 @@ protocol CalculatorDelegate: AnyObject {
 }
 
 class CalculatorPresenter {
-    weak var delegate: CalculatorDelegate?
+    var router: RouterProtocol?
+    var interactor: CalculatorInteractor?
+    weak var view: CalculatorDelegate?
     
-    private let arithmeticOperations = ArithmeticOperations()
+    init() {
+        
+    }
     
     private(set) var status: CalculatorStatus = .enterFirstNumber
     private var lastResult: Double? = nil
@@ -57,36 +61,8 @@ class CalculatorPresenter {
             return
         }
         if let firstNumber = Double(self.stringNumbersToCompute.0), let secondNumber = Double(self.stringNumbersToCompute.1) {
-            switch (operationSelected) {
-            case .addition:
-                self.lastResult = self.arithmeticOperations.addition(firstNumber: firstNumber, secondNumber: secondNumber)
-                break;
-            case .multiplication:
-                self.lastResult = self.arithmeticOperations.multiplication(firstNumber: firstNumber, secondNumber: secondNumber)
-                break;
-            case .division:
-                self.lastResult = self.arithmeticOperations.division(firstNumber: firstNumber, secondNumber: secondNumber).doubleValue
-                break;
-            case .substraction:
-                self.lastResult = self.arithmeticOperations.substraction(firstNumber: firstNumber, secondNumber: secondNumber)
-                break;
-            }
             
-            self.status = .result
-            
-            guard let lastResult = lastResult else {
-                return
-            }
-            let resultToDisplay: String
-            if lastResult.isNaN {
-                resultToDisplay = "No puedes dividir entre 0"
-            } else if String(lastResult).hasSuffix(".0") {
-                resultToDisplay = String(lastResult).replacingOccurrences(of: ".0", with: "")
-            } else {
-                resultToDisplay = String(lastResult)
-            }
-            self.displayToView(resultToDisplay)
-            self.stringNumbersToCompute = ("", "")
+            interactor?.makeOperation(firstNumber: firstNumber, secondNumber: secondNumber, operation: operationSelected)
         }
     }
     
@@ -130,7 +106,26 @@ class CalculatorPresenter {
     }
     
     private func displayToView(_ content: String) {
-        self.delegate?.showOnCalculatorDisplay(content)
+        self.view?.showOnCalculatorDisplay(content)
+    }
+    
+    func showResult(_ result: Double) {
+        self.lastResult = result
+        self.status = .result
+        
+        guard let lastResult = lastResult else {
+            return
+        }
+        let resultToDisplay: String
+        if lastResult.isNaN {
+            resultToDisplay = "No puedes dividir entre 0"
+        } else if String(lastResult).hasSuffix(".0") {
+            resultToDisplay = String(lastResult).replacingOccurrences(of: ".0", with: "")
+        } else {
+            resultToDisplay = String(lastResult)
+        }
+        self.displayToView(resultToDisplay)
+        self.stringNumbersToCompute = ("", "")
     }
 }
 

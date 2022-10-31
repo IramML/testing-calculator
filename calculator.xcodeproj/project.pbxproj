@@ -14,12 +14,15 @@
 		FA264D1428ADB17300364B8C /* calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA264D1228ADB17300364B8C /* calculator.xcdatamodeld */; };
 		FA264D1628ADB17600364B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA264D1528ADB17600364B8C /* Assets.xcassets */; };
 		FA264D1928ADB17600364B8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA264D1728ADB17600364B8C /* LaunchScreen.storyboard */; };
-		FA264D2428ADB17600364B8C /* calculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA264D2328ADB17600364B8C /* calculatorTests.swift */; };
 		FA264D2E28ADB17600364B8C /* calculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA264D2D28ADB17600364B8C /* calculatorUITests.swift */; };
 		FA264D3028ADB17600364B8C /* calculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA264D2F28ADB17600364B8C /* calculatorUITestsLaunchTests.swift */; };
 		FA264D4128ADE02600364B8C /* ArithmeticOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA264D4028ADE02600364B8C /* ArithmeticOperations.swift */; };
 		FA264D4328ADE54200364B8C /* arithmeticOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA264D4228ADE54200364B8C /* arithmeticOperationsTests.swift */; };
 		FA264D4528B00A7300364B8C /* CalculatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA264D4428B00A7300364B8C /* CalculatorPresenter.swift */; };
+		FA56D4C62906D2E1007ED2A7 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D4C52906D2E1007ED2A7 /* RouterProtocol.swift */; };
+		FA56D4C82906D33B007ED2A7 /* CalculatorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D4C72906D33B007ED2A7 /* CalculatorInteractor.swift */; };
+		FA56D4CD2906DC36007ED2A7 /* XCTestCase+MemoryLeaksTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D4CC2906DC36007ED2A7 /* XCTestCase+MemoryLeaksTracker.swift */; };
+		FA97CBDE28C959F4001978D7 /* CalculatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97CBDD28C959F4001978D7 /* CalculatorRouter.swift */; };
 		FAD66C9228B198F400E75CBE /* calculatorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD66C9128B198F400E75CBE /* calculatorPresenterTests.swift */; };
 		FAD66C9628B2CF1D00E75CBE /* MathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD66C9528B2CF1D00E75CBE /* MathOperation.swift */; };
 /* End PBXBuildFile section */
@@ -52,13 +55,16 @@
 		FA264D1828ADB17600364B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA264D1A28ADB17600364B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA264D1F28ADB17600364B8C /* calculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA264D2328ADB17600364B8C /* calculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorTests.swift; sourceTree = "<group>"; };
 		FA264D2928ADB17600364B8C /* calculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA264D2D28ADB17600364B8C /* calculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorUITests.swift; sourceTree = "<group>"; };
 		FA264D2F28ADB17600364B8C /* calculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA264D4028ADE02600364B8C /* ArithmeticOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticOperations.swift; sourceTree = "<group>"; };
 		FA264D4228ADE54200364B8C /* arithmeticOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arithmeticOperationsTests.swift; sourceTree = "<group>"; };
 		FA264D4428B00A7300364B8C /* CalculatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorPresenter.swift; sourceTree = "<group>"; };
+		FA56D4C52906D2E1007ED2A7 /* RouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		FA56D4C72906D33B007ED2A7 /* CalculatorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorInteractor.swift; sourceTree = "<group>"; };
+		FA56D4CC2906DC36007ED2A7 /* XCTestCase+MemoryLeaksTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeaksTracker.swift"; sourceTree = "<group>"; };
+		FA97CBDD28C959F4001978D7 /* CalculatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorRouter.swift; sourceTree = "<group>"; };
 		FAD66C9128B198F400E75CBE /* calculatorPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorPresenterTests.swift; sourceTree = "<group>"; };
 		FAD66C9528B2CF1D00E75CBE /* MathOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,11 +117,11 @@
 		FA264D0828ADB17300364B8C /* calculator */ = {
 			isa = PBXGroup;
 			children = (
-				FA264D3F28ADE00400364B8C /* Calculator */,
-				FA264D3C28ADBBC900364B8C /* UI */,
-				FAD66C9428B2BFA500E75CBE /* Presenter */,
+				FA56D4C12906D15E007ED2A7 /* Modules */,
+				FA264D3F28ADE00400364B8C /* Helper */,
 				FA264D0928ADB17300364B8C /* AppDelegate.swift */,
 				FA264D0B28ADB17300364B8C /* SceneDelegate.swift */,
+				FA56D4C52906D2E1007ED2A7 /* RouterProtocol.swift */,
 				FA264D1528ADB17600364B8C /* Assets.xcassets */,
 				FA264D1728ADB17600364B8C /* LaunchScreen.storyboard */,
 				FA264D1A28ADB17600364B8C /* Info.plist */,
@@ -127,9 +133,9 @@
 		FA264D2228ADB17600364B8C /* calculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				FAD66C9328B2BF9700E75CBE /* Presenter */,
-				FA264D2328ADB17600364B8C /* calculatorTests.swift */,
-				FA264D4228ADE54200364B8C /* arithmeticOperationsTests.swift */,
+				FA56D4CA2906D889007ED2A7 /* Helper */,
+				FA56D4C92906D869007ED2A7 /* Modules */,
+				FA56D4CC2906DC36007ED2A7 /* XCTestCase+MemoryLeaksTracker.swift */,
 			);
 			path = calculatorTests;
 			sourceTree = "<group>";
@@ -143,38 +149,57 @@
 			path = calculatorUITests;
 			sourceTree = "<group>";
 		};
-		FA264D3C28ADBBC900364B8C /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				FA264D0F28ADB17300364B8C /* Main.storyboard */,
-				FA264D0D28ADB17300364B8C /* CalculatorViewController.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		FA264D3F28ADE00400364B8C /* Calculator */ = {
+		FA264D3F28ADE00400364B8C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				FA264D4028ADE02600364B8C /* ArithmeticOperations.swift */,
 				FAD66C9528B2CF1D00E75CBE /* MathOperation.swift */,
 			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		FA56D4C12906D15E007ED2A7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FA56D4C22906D164007ED2A7 /* Calculator */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FA56D4C22906D164007ED2A7 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				FA97CBDD28C959F4001978D7 /* CalculatorRouter.swift */,
+				FA56D4C72906D33B007ED2A7 /* CalculatorInteractor.swift */,
+				FA264D4428B00A7300364B8C /* CalculatorPresenter.swift */,
+				FA264D0D28ADB17300364B8C /* CalculatorViewController.swift */,
+				FA264D0F28ADB17300364B8C /* Main.storyboard */,
+			);
 			path = Calculator;
 			sourceTree = "<group>";
 		};
-		FAD66C9328B2BF9700E75CBE /* Presenter */ = {
+		FA56D4C92906D869007ED2A7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FA56D4CB2906DA95007ED2A7 /* Calculator */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FA56D4CA2906D889007ED2A7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FA264D4228ADE54200364B8C /* arithmeticOperationsTests.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		FA56D4CB2906DA95007ED2A7 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
 				FAD66C9128B198F400E75CBE /* calculatorPresenterTests.swift */,
 			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		FAD66C9428B2BFA500E75CBE /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				FA264D4428B00A7300364B8C /* CalculatorPresenter.swift */,
-			);
-			path = Presenter;
+			path = Calculator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,10 +334,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA264D0E28ADB17300364B8C /* CalculatorViewController.swift in Sources */,
+				FA97CBDE28C959F4001978D7 /* CalculatorRouter.swift in Sources */,
+				FA56D4C62906D2E1007ED2A7 /* RouterProtocol.swift in Sources */,
 				FAD66C9628B2CF1D00E75CBE /* MathOperation.swift in Sources */,
 				FA264D1428ADB17300364B8C /* calculator.xcdatamodeld in Sources */,
 				FA264D0A28ADB17300364B8C /* AppDelegate.swift in Sources */,
 				FA264D0C28ADB17300364B8C /* SceneDelegate.swift in Sources */,
+				FA56D4C82906D33B007ED2A7 /* CalculatorInteractor.swift in Sources */,
 				FA264D4528B00A7300364B8C /* CalculatorPresenter.swift in Sources */,
 				FA264D4128ADE02600364B8C /* ArithmeticOperations.swift in Sources */,
 			);
@@ -322,9 +350,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA264D2428ADB17600364B8C /* calculatorTests.swift in Sources */,
 				FAD66C9228B198F400E75CBE /* calculatorPresenterTests.swift in Sources */,
 				FA264D4328ADE54200364B8C /* arithmeticOperationsTests.swift in Sources */,
+				FA56D4CD2906DC36007ED2A7 /* XCTestCase+MemoryLeaksTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
